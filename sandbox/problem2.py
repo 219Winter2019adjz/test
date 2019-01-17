@@ -104,10 +104,10 @@ from sklearn.feature_extraction.text import CountVectorizer
 
 # do for training
 count_vect = CountVectorizer(min_df=3, stop_words='english')
-X_train_counts = count_vect.fit_transform(lemmatized_training)
+X_lemmatized_train_counts = count_vect.fit_transform(lemmatized_training)
 
 # do for testing
-X_test_counts = count_vect.transform(lemmatized_testing)
+X_lemmatized_test_counts = count_vect.transform(lemmatized_testing)
 
 ########################################################################################################################
 # Report shapes of TF-IDF matrices
@@ -116,22 +116,22 @@ from sklearn.feature_extraction.text import TfidfTransformer
 tfidf_transformer = TfidfTransformer()
 
 # do for training
-X_train_tfidf = tfidf_transformer.fit_transform(X_train_counts)
+X_lemmatized_train_tfidf = tfidf_transformer.fit_transform(X_lemmatized_train_counts)
 
-print(X_train_tfidf.shape)
+print(X_lemmatized_train_tfidf.shape)
 print('-' * 20)
-print(X_train_counts.toarray()[:30, :5])
+print(X_lemmatized_train_counts.toarray()[:30, :5])
 print('-' * 20)
-print(X_train_tfidf.toarray()[:30, :5])
+print(X_lemmatized_train_tfidf.toarray()[:30, :5])
 
 # do for testing
-X_test_tfidf = tfidf_transformer.transform(X_test_counts)
+X_lemmatized_test_tfidf = tfidf_transformer.transform(X_lemmatized_test_counts)
 
-print(X_test_tfidf.shape)
+print(X_lemmatized_test_tfidf.shape)
 print('-' * 20)
-print(X_test_counts.toarray()[:30, :5])
+print(X_lemmatized_test_counts.toarray()[:30, :5])
 print('-' * 20)
-print(X_test_tfidf.toarray()[:30, :5])
+print(X_lemmatized_test_tfidf.toarray()[:30, :5])
 
 ########################################################################################################################
 # Should be 'similar' to this:
