@@ -34,7 +34,7 @@ tfidf_transformer = TfidfTransformer()
 X_train_tfidf = tfidf_transformer.fit_transform(X_train_counts)
 
 # do for testing
-X_test_tfidf = tfidf_transformer.fit_transform(X_test_counts)
+X_test_tfidf = tfidf_transformer.transform(X_test_counts)
 
 ########################################################################################################################
 # Perform NMF
@@ -50,7 +50,7 @@ print(W_nmf_train_reduced.shape)
 print(twenty_train.target.shape)
 
 # do for testing
-W_nmf_test_reduced = model.fit_transform(X_test_tfidf)
+W_nmf_test_reduced = model.transform(X_test_tfidf)
 H_nmf_test_reduced = model.components_
 
 ########################################################################################################################
@@ -62,6 +62,17 @@ clf = GaussianNB().fit(W_nmf_train_reduced, twenty_train.target)
 ########################################################################################################################
 # Generate predictions for test set
 
+predicted = clf.predict(W_nmf_train_reduced)
+correct = 0
+for i, category in enumerate(predicted):
+    if category == twenty_train.target[i]:
+        correct += 1
+    # if i < 5:
+    #     print('{} =? {}'.format(twenty_test.target_names[category], twenty_test.target_names[twenty_test.target[i]]))
+    # else:
+    #     break
+print('Accuracy of NB Gaussian (train): {}'.format(correct / W_nmf_train_reduced.shape[0]))
+
 predicted = clf.predict(W_nmf_test_reduced)
 correct = 0
 for i, category in enumerate(predicted):
@@ -71,4 +82,4 @@ for i, category in enumerate(predicted):
     #     print('{} =? {}'.format(twenty_test.target_names[category], twenty_test.target_names[twenty_test.target[i]]))
     # else:
     #     break
-print('Accuracy of NB Gaussian: {}'.format(correct / W_nmf_test_reduced.shape[0]))
+print('Accuracy of NB Gaussian (test): {}'.format(correct / W_nmf_test_reduced.shape[0]))
