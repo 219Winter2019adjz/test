@@ -75,3 +75,6 @@ param_grid = [
 grid = GridSearchCV(pipeline, cv=5, n_jobs=1, param_grid=param_grid, scoring='accuracy')
 grid.fit(twenty_train.data, twenty_train_binary_labels)
 rmtree(cachedir)
+
+import pandas as pd
+pd.DataFrame(grid.cv_results_)

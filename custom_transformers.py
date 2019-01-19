@@ -1,5 +1,6 @@
 from sklearn.datasets import fetch_20newsgroups
 from sklearn.base import BaseEstimator, TransformerMixin
+import re
 # The lemmatizer is actually pretty complicated, it needs Parts of Speech (POS) tags
 import nltk
 from nltk import pos_tag
@@ -9,34 +10,68 @@ from nltk import pos_tag
 
 class Importer(BaseEstimator, TransformerMixin):
 
-    def __init__(self, include_headers=True, shuffle=True, random_state=42, categories=None):
-        self.include_headers = include_headers
-        self.shuffle = shuffle
-        self.random_state = random_state
-        if categories is not None:
-            self.categories = categories
-        else:
-            self.categories = ['comp.graphics', 'comp.os.ms-windows.misc',
-              'comp.sys.ibm.pc.hardware', 'comp.sys.mac.hardware',
-              'rec.autos', 'rec.motorcycles',
-              'rec.sport.baseball', 'rec.sport.hockey']
+    def __init__(self, remove=None):
+        if remove is None:
+            remove = []
+        self.remove = remove
 
-    def transform(self, dummy, *_):
-        if self.include_headers:
-            raw_documents = fetch_20newsgroups(subset='train',
-                                               categories=self.categories,
-                                               shuffle=self.shuffle,
-                                               random_state=self.random_state)
-        else:
-            raw_documents = fetch_20newsgroups(subset='train',
-                                               categories=self.categories,
-                                               shuffle=self.shuffle,
-                                               random_state=self.random_state,
-                                               remove=('headers',))
-        return raw_documents.data
+    def transform(self, raw_documents, *_):
+        if 'headers' in self.remove:
+            raw_documents = [self.strip_newsgroup_header(text) for text in raw_documents]
+        if 'footers' in self.remove:
+            raw_documents = [self.strip_newsgroup_footer(text) for text in raw_documents]
+
+        return raw_documents
 
     def fit(self, *_):
         return self
+
+    ####################################################################################################################
+    ## Taken from twenty_newsgroups.py
+    @staticmethod
+    def strip_newsgroup_header(text):
+        """
+        Given text in "news" format, strip the headers, by removing everything
+        before the first blank line.
+
+        Parameters
+        ----------
+        text : string
+            The text from which to remove the signature block.
+        """
+        _before, _blankline, after = text.partition('\n\n')
+        return after
+
+    _QUOTE_RE = re.compile(r'(writes in|writes:|wrote:|says:|said:'
+                           r'|^In article|^Quoted from|^\||^>)')
+
+    @staticmethod
+    def strip_newsgroup_footer(text):
+        """
+        Given text in "news" format, attempt to remove a signature block.
+
+        As a rough heuristic, we assume that signatures are set apart by either
+        a blank line or a line made of hyphens, and that it is the last such line
+        in the file (disregarding blank lines at the end).
+
+        Parameters
+        ----------
+        text : string
+            The text from which to remove the signature block.
+        """
+        lines = text.strip().split('\n')
+        for line_num in range(len(lines) - 1, -1, -1):
+            line = lines[line_num]
+            if line.strip().strip('-') == '':
+                break
+
+        if line_num > 0:
+            return '\n'.join(lines[:line_num])
+        else:
+            return text
+
+    ##
+    ####################################################################################################################
 
 class Lemmatizer(BaseEstimator, TransformerMixin):
 
