@@ -1,4 +1,4 @@
-Help (but very brief) guide that I created with useful Terminal commands for using Git.
+-> Help (but very brief) guide that I created with useful Terminal commands for using Git.
 Note the link at the end of this document.
 
 ls :see files in current directory
