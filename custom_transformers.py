@@ -11,15 +11,14 @@ from nltk import pos_tag
 class Importer(BaseEstimator, TransformerMixin):
 
     def __init__(self, remove=None):
-        if remove is None:
-            remove = []
         self.remove = remove
 
     def transform(self, raw_documents, *_):
-        if 'headers' in self.remove:
-            raw_documents = [self.strip_newsgroup_header(text) for text in raw_documents]
-        if 'footers' in self.remove:
-            raw_documents = [self.strip_newsgroup_footer(text) for text in raw_documents]
+        if self.remove is not None:
+            if 'headers' in self.remove:
+                raw_documents = [self.strip_newsgroup_header(text) for text in raw_documents]
+            if 'footers' in self.remove:
+                raw_documents = [self.strip_newsgroup_footer(text) for text in raw_documents]
 
         return raw_documents
 
