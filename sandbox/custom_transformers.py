@@ -1,3 +1,6 @@
+########################################################################################################################
+## Custom Transformers for Grid Search
+
 from sklearn.datasets import fetch_20newsgroups
 from sklearn.base import BaseEstimator, TransformerMixin
 import re
@@ -25,7 +28,6 @@ class Importer(BaseEstimator, TransformerMixin):
     def fit(self, *_):
         return self
 
-    ####################################################################################################################
     ## Taken from twenty_newsgroups.py
     @staticmethod
     def strip_newsgroup_header(text):
@@ -44,6 +46,7 @@ class Importer(BaseEstimator, TransformerMixin):
     _QUOTE_RE = re.compile(r'(writes in|writes:|wrote:|says:|said:'
                            r'|^In article|^Quoted from|^\||^>)')
 
+    ## Taken from twenty_newsgroups.py
     @staticmethod
     def strip_newsgroup_footer(text):
         """
@@ -69,8 +72,6 @@ class Importer(BaseEstimator, TransformerMixin):
         else:
             return text
 
-    ##
-    ####################################################################################################################
 
 class Lemmatizer(BaseEstimator, TransformerMixin):
 
