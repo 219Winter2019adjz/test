@@ -11,5 +11,5 @@ cropped1.to_latex("grid_search_results_latex1.txt")
 print(cropped1)
 
 cropped2 = sorted.iloc[0:20, [5] + [6] + [7] + [8]]# + [-1] + [-2]]
-cropped2.to_latex("grid_search_results_latex2.txt")
+cropped2.to_latex("grid_search_results_latex2.txt", index=False)
 print(cropped2)
