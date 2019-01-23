@@ -1,26 +1,26 @@
-\begin{tabular}{llll}
+\begin{tabular}{lllr}
 \toprule
-           param\_clf & param\_import\_\_remove &  param\_lemm\_\_enabled &     param\_reduce\_dim \\
+param\_import\_\_remove & param\_reduce\_dim & param\_vect\_\_analyzer &  param\_vect\_\_min\_df \\
 \midrule
- LinearSVC(C=1000... &                  NaN &                False &  TruncatedSVD(alg... \\
- LinearSVC(C=1000... &                  NaN &                 True &  TruncatedSVD(alg... \\
- LinearSVC(C=1000... &  ['headers', 'foo... &                False &  TruncatedSVD(alg... \\
- LinearSVC(C=1000... &                  NaN &                 True &  TruncatedSVD(alg... \\
- LinearSVC(C=1000... &  ['headers', 'foo... &                False &  TruncatedSVD(alg... \\
- LinearSVC(C=1000... &                  NaN &                False &  TruncatedSVD(alg... \\
- LinearSVC(C=1000... &                  NaN &                 True &  NMF(alpha=0.0, b... \\
- LinearSVC(C=1000... &                  NaN &                 True &  NMF(alpha=0.0, b... \\
- LinearSVC(C=1000... &  ['headers', 'foo... &                False &  NMF(alpha=0.0, b... \\
- LinearSVC(C=1000... &  ['headers', 'foo... &                False &  NMF(alpha=0.0, b... \\
- LinearSVC(C=1000... &  ['headers', 'foo... &                 True &  TruncatedSVD(alg... \\
- LinearSVC(C=1000... &  ['headers', 'foo... &                 True &  TruncatedSVD(alg... \\
- LinearSVC(C=1000... &                  NaN &                False &  NMF(alpha=0.0, b... \\
- LinearSVC(C=1000... &                  NaN &                False &  NMF(alpha=0.0, b... \\
- LinearSVC(C=1000... &  ['headers', 'foo... &                 True &  NMF(alpha=0.0, b... \\
- LogisticRegressi... &                  NaN &                 True &  TruncatedSVD(alg... \\
- LogisticRegressi... &                  NaN &                 True &  TruncatedSVD(alg... \\
- LinearSVC(C=1000... &  ['headers', 'foo... &                 True &  NMF(alpha=0.0, b... \\
- LogisticRegressi... &                  NaN &                False &  TruncatedSVD(alg... \\
- LogisticRegressi... &                  NaN &                False &  TruncatedSVD(alg... \\
+             NaN &  TruncatedSVD... &  <function st... &                3 \\
+             NaN &  TruncatedSVD... &             word &                3 \\
+ ['headers', ... &  TruncatedSVD... &             word &                5 \\
+             NaN &  TruncatedSVD... &  <function st... &                5 \\
+ ['headers', ... &  TruncatedSVD... &             word &                3 \\
+             NaN &  TruncatedSVD... &             word &                5 \\
+             NaN &  NMF(alpha=0.... &  <function st... &                3 \\
+             NaN &  NMF(alpha=0.... &  <function st... &                5 \\
+ ['headers', ... &  NMF(alpha=0.... &             word &                5 \\
+ ['headers', ... &  NMF(alpha=0.... &             word &                3 \\
+             NaN &  NMF(alpha=0.... &             word &                5 \\
+             NaN &  NMF(alpha=0.... &             word &                3 \\
+ ['headers', ... &  TruncatedSVD... &  <function st... &                3 \\
+ ['headers', ... &  TruncatedSVD... &  <function st... &                5 \\
+ ['headers', ... &  NMF(alpha=0.... &  <function st... &                3 \\
+ ['headers', ... &  NMF(alpha=0.... &  <function st... &                5 \\
+             NaN &  TruncatedSVD... &             word &                3 \\
+             NaN &  TruncatedSVD... &             word &                5 \\
+ ['headers', ... &  NMF(alpha=0.... &             word &                5 \\
+             NaN &  NMF(alpha=0.... &  <function st... &                3 \\
 \bottomrule
 \end{tabular}
