@@ -1,0 +1,22 @@
+\begin{tabular}{lllr}
+\toprule
+param\_import\_\_remove & param\_reduce\_dim & param\_vect\_\_analyzer &  param\_vect\_\_min\_df \\
+\midrule
+             NaN &  TruncatedSVD... &  <function st... &                3 \\
+             NaN &  TruncatedSVD... &             word &                3 \\
+             NaN &  TruncatedSVD... &  <function st... &                5 \\
+ ['headers', ... &  TruncatedSVD... &             word &                3 \\
+             NaN &  TruncatedSVD... &             word &                5 \\
+ ['headers', ... &  TruncatedSVD... &             word &                5 \\
+ ['headers', ... &  TruncatedSVD... &  <function st... &                5 \\
+             NaN &  NMF(alpha=0.... &             word &                5 \\
+             NaN &  NMF(alpha=0.... &  <function st... &                3 \\
+ ['headers', ... &  TruncatedSVD... &  <function st... &                3 \\
+             NaN &  NMF(alpha=0.... &             word &                3 \\
+             NaN &  NMF(alpha=0.... &  <function st... &                5 \\
+ ['headers', ... &  NMF(alpha=0.... &             word &                5 \\
+ ['headers', ... &  NMF(alpha=0.... &             word &                3 \\
+ ['headers', ... &  NMF(alpha=0.... &  <function st... &                3 \\
+ ['headers', ... &  NMF(alpha=0.... &  <function st... &                5 \\
+\bottomrule
+\end{tabular}
