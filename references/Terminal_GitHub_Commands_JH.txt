@@ -1,0 +1,44 @@
+-> Help (but very brief) guide that I created with useful Terminal commands for using Git.
+Note the link at the end of this document.
+
+ls :see files in current directory
+pwd :see current file path
+cd :change directory
+cd .. :go back a directory level
+cd ~/ :return to home directory
+
+open :use to open a document in current directory
+open -a <application> :opens an application, regardless of current file path
+open Downloads/Instructions.doc -a <Program> :open a file with specified program
+
+cp <File Name> <FileName>-Copy.<File Extension> :copy a file or directory
+	e.g. cp TestFile.txt TestFile-Copy.txt
+mv: move a file
+mv <File name.extension> <New file name.extension> :renames a file
+rm :removes file or directory (use cd .. to back out of a directory before deleting it)
+
+To add files:
+git status :allows you to see which files it thinks exist
+	e.g. It might say:
+ 		Your branch is up to date with 'origin/master'.
+		Untracked files:
+			  (use "git add <file>..." to include in what will be committed)
+		TestFile_ToBeDeleted.txt
+		nothing added to commit but untracked files present (use "git add" to track)
+git add <File name> :adds a file to the staging environment (do this for all files you want to add)
+git commit :tell git to package to package all added files into a commit
+git commit -m "<insert message about commit here>"
+git checkout -b <my branch name> :Create a new branch and check it out	
+	(Git now places you in this branch)
+git branch :confirm that ^branch was created
+git push origin <my branch name> :creates a branch in the repo
+** Now go to GitHub and manually merge the pull request
+	(compare & pull request)
+	(if merge button is grey it means that there is a merge conflict)
+** Delete branch to tidy up the workspace (grey button)
+git pull origin master :command that allows you to get most recent changes that have been merged 
+git log :see all new commits
+git checkout master :switch branches back to the master branch
+	use git pull if branch is behind
+
+Helpful Link About GitHub: https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners
