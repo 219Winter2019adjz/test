@@ -1,0 +1,51 @@
+1. run change-author.sh or change-name.sh
+2. git push --force --tags origin [branch]
+3. git update-ref -d refs/original/refs/heads/[branch]
+
+========================================================================================================================
+
+previous user:
+Author: Dennis Wang <dmwang626@s-164-67-235-73.resnet.ucla.edu>
+Author: Dennis Wang <dmwang626@Denniss-MacBook-Pro-3.local>
+Author: Dennis Wang <dmwang626@Denniss-MacBook-Pro-3.local>
+Author: Dennis Wang <dmwang626@Denniss-MacBook-Pro-3.local>
+Author: Dennis Wang <dmwang626@Denniss-MacBook-Pro-3.local>
+Author: Dennis Wang <dmwang626@Denniss-MacBook-Pro-3.local>
+Author: Dennis Wang <dmwang626@s-164-67-235-73.resnet.ucla.edu>
+Author: Dennis Wang <dmwang626@s-164-67-235-73.resnet.ucla.edu>
+Author: Dennis Wang <dmwang626@Denniss-MacBook-Pro-3.local>
+Author: Dennis Wang <dmwang626@s-164-67-235-73.resnet.ucla.edu>
+Author: Dennis Wang <dmwang626@s-164-67-235-73.resnet.ucla.edu>
+Author: Dennis Wang <dmwang626@s-164-67-235-73.resnet.ucla.edu>
+Author: Dennis Wang <dmwang626@s-164-67-235-73.resnet.ucla.edu>
+Author: Dennis Wang <dmwang626@Denniss-MacBook-Pro-3.local>
+
+new:
+dmwang626@g.ucla.edu
+
+-------------------------------------------------------------------------
+
+previous user:
+Author: hannanjg <Joshua@Joshuas-MBP-2.lan1>
+Author: hannanjg <Joshua@wifi-131-179-18-78.host.ucla.edu>
+Author: joshuaghannan <46729476+joshuaghannan@users.noreply.github.com>
+Author: joshuaghannan <46729476+joshuaghannan@users.noreply.github.com>
+Author: hannanjg <Joshua@Joshuas-MBP-2.lan1>
+Author: joshuaghannan <46729476+joshuaghannan@users.noreply.github.com>
+Author: hannanjg <Joshua@Joshuas-MBP-2.lan1>
+Author: hannanjg <Joshua@Joshuas-MBP-2.lan1>
+Author: joshuaghannan <46729476+joshuaghannan@users.noreply.github.com>
+Author: hannanjg <Joshua@Joshuas-MBP-2.lan1>
+
+new:
+46729476+joshuaghannan@users.noreply.github.com
+
+-------------------------------------------------------------------------
+
+previous user:
+Author: Akash Deep Singh <akash@s-164-67-235-157.resnet.ucla.edu>
+Author: Akash Deep Singh <akash@s-164-67-235-157.resnet.ucla.edu>
+Author: Akash Deep Singh <akash@s-164-67-235-157.resnet.ucla.edu>
+
+new:
+akash14131@iiitd.ac.in
